@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DEMSY OUTILS DC — Espace de travail Demsy Couture</title>
+  <meta name="description" content="DEMSY OUTILS DC — outil de travail interne de l'atelier Demsy Couture : gestion des clients, commandes, mensurations, rendez-vous et finances.">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Chargement -->
+  <div id="loader"><div class="spinner"></div></div>
+
+  <!-- ====== ÉCRAN DE CONNEXION ====== -->
+  <section id="login-screen" class="login hidden">
+    <button class="btn btn-ghost btn-sm login-theme" data-theme-toggle type="button"></button>
+    <form id="login-form" class="login-card" autocomplete="on">
+      <div class="login-logo"><img src="assets/logo.png" alt="DEMSY OUTILS DC"></div>
+      <h1 class="brand-title">DEMSY OUTILS DC</h1>
+      <p class="brand-sub">ESPACE DE TRAVAIL EXCLUSIF</p>
+
+      <label class="lbl" for="login-user">IDENTIFIANT</label>
+      <div class="input-icon">
+        <span data-icon="user"></span>
+        <input id="login-user" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="Votre identifiant" required>
+      </div>
+
+      <label class="lbl" for="login-pass">MOT DE PASSE</label>
+      <div class="input-icon">
+        <span data-icon="lock"></span>
+        <input id="login-pass" type="password" autocomplete="current-password" placeholder="••••••••" required>
+        <button type="button" class="eye" id="toggle-pass" aria-label="Afficher ou masquer le mot de passe"><span data-icon="eye"></span></button>
+      </div>
+
+      <p id="login-error" class="form-error hidden" role="alert"></p>
+      <button id="login-btn" class="btn btn-primary btn-block" type="submit">S'AUTHENTIFIER</button>
+      <p class="login-note">Authentification requise pour accéder aux dossiers clients et finances.</p>
+    </form>
+  </section>
+
+  <!-- ====== APPLICATION ====== -->
+  <div id="app" class="app hidden">
+    <header class="topbar">
+      <button id="menu-btn" class="icon-btn" type="button" aria-label="Ouvrir le menu"><span data-icon="menu"></span></button>
+      <img src="assets/logo.png" alt="DEMSY OUTILS DC">
+    </header>
+
+    <aside id="sidebar" class="sidebar">
+      <a class="side-brand" href="#/dashboard"><img src="assets/logo.png" alt="DEMSY OUTILS DC"></a>
+      <button id="profile-card" class="profile" type="button" title="Mon compte">
+        <div class="avatar" id="avatar"></div>
+        <div class="p-text"><div class="p-name" id="p-name"></div><div class="p-role" id="p-role"></div></div>
+      </button>
+      <nav id="nav"></nav>
+      <div class="side-foot">
+        <button class="btn btn-side btn-sm btn-block" data-theme-toggle type="button"></button>
+        <button id="logout-btn" class="btn btn-side btn-sm btn-block" type="button"></button>
+      </div>
+    </aside>
+    <div id="side-backdrop" class="side-backdrop"></div>
+
+    <main class="main"><div id="view"></div></main>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toasts" aria-live="polite"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
